@@ -104,9 +104,9 @@ def trainNB(trainMatrix, trainCategory):
             # 统计属于非侮辱类的条件概率所需的数据,即P(w0|0),P(w1|0)...
             p0Num += trainMatrix[i]
             p0Denom += sum(trainMatrix[i])
-    # print(p1Denom)
-    p1Vect = np.log(p1Num / p1Denom)
-    p0Vect = np.log(p0Num / p0Denom)
+    # print(p1Denom) #取对数，防止下溢出
+    p1Vect = np.log(p1Num/p1Denom)
+    p0Vect = np.log(p0Num/p0Denom)
     return p0Vect, p1Vect, pAbusive
 
 
